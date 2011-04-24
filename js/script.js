@@ -1,4 +1,38 @@
 $(function() {
+	var body = $("body")[0];
+	
+	function dragenter(e) {
+		e.stopPropagation();
+		e.preventDefault();
+	}
+	function dragover(e) {
+		e.stopPropagation();
+		e.preventDefault();
+	}
+	function drop(e) {
+		e.stopPropagation();
+		e.preventDefault();
+
+		var files = e.dataTransfer.files
+			, file = files[0]
+			, reader;
+
+		if (file.type.match(/image.*/)) {
+			reader = new FileReader();
+			reader.onload = function(e) {
+				$("#img1 .imgsrc").attr("src", e.target.result);
+				processPixelData();
+			};
+			reader.readAsDataURL(file);
+		}
+	}
+	
+	// Add drag & drop listeners for files
+	body.addEventListener("dragenter", dragenter, false);
+	body.addEventListener("dragover", dragover, false);
+	body.addEventListener("drop", drop, false);
+
+	// Compare 2 color arrays to see if they match
 	function rgb_equal(p1, p2) {
 		return p1.length == p2.length &&
 				p1.length >= 3 &&
@@ -30,7 +64,26 @@ $(function() {
 		}
 	}
 
-	function processPixelData(data) {
+	function processPixelData() {
+		// Load canvas
+		var canvas = document.getElementById("grad")
+			, context = canvas.getContext("2d")
+			, img = $("#img1 .imgsrc")[0]
+			, data;
+
+		canvas.width = img.width;
+		canvas.height = img.height;
+
+		context.drawImage(img, 0, 0);
+		
+		// Get each corner pixel as RGBA array
+		data = {
+			TL: Array.prototype.slice.call(context.getImageData(0, 0, 1, 1).data, 0)
+			, TR: Array.prototype.slice.call(context.getImageData(canvas.width - 1, 0, 1, 1).data, 0)
+			, BL: Array.prototype.slice.call(context.getImageData(0, canvas.height - 1, 1, 1).data, 0)
+			, BR: Array.prototype.slice.call(context.getImageData(canvas.width - 1, canvas.height - 1, 1, 1).data, 0)
+		};
+
 		if(data == null || !data.TR) {
 			alert("Could not parse image for pixel data");
 			return;
@@ -83,24 +136,5 @@ $(function() {
 		$("#img1 .cssgradient")[0].style.cssText = "height:" + img.height + "px;width:" + img.width + "px;" + css;
 	}
 
-	// Load canvas
-	var canvas = document.getElementById("grad")
-		, context = canvas.getContext("2d")
-		, img = document.getElementById("imgsrc")
-		, dim;
-
-	canvas.width = img.width;
-	canvas.height = img.height;
-
-	context.drawImage(img, 0, 0);
-	
-	// Get each corner pixel as RGBA array
-	dim = {
-		TL: Array.prototype.slice.call(context.getImageData(0, 0, 1, 1).data, 0)
-		, TR: Array.prototype.slice.call(context.getImageData(canvas.width - 1, 0, 1, 1).data, 0)
-		, BL: Array.prototype.slice.call(context.getImageData(0, canvas.height - 1, 1, 1).data, 0)
-		, BR: Array.prototype.slice.call(context.getImageData(canvas.width - 1, canvas.height - 1, 1, 1).data, 0)
-	};
-
-	processPixelData(dim);
+	processPixelData();
 });
