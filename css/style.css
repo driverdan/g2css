@@ -1,0 +1,13 @@
+body {
+	font: 14px/21px "Helvetica Neue", Helvetica, sans-serif;
+}
+
+pre {
+	border: 1px solid #aaa;
+	background: #eee;
+	padding: 5px;
+}
+
+#grad {
+	display: none;
+}
