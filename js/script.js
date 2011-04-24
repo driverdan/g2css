@@ -73,13 +73,13 @@ $(function() {
 		css = "/* Gecko */\n";
 		css += "background-image: -moz-linear-gradient(" + normal[orin] + ", " + colorString1 + " " + colorString2 +");\n";
 		css += "/* Safari 4+, Chrome 1+ */\n";
-		css += "background-image: -webkit-gradient(linear, " + webkit_start[orin] + ", " + webkit_end[orin]+ ", from(" + toColorString(color1) + "), to(" + toColorString(color2) + "));\n"
+		css += "background-image: -webkit-gradient(linear, " + webkit_start[orin] + ", " + webkit_end[orin]+ ", from(" + toColorString(color1) + "), to(" + toColorString(color2) + "));\n";
 		css += "/* Safari 5.1+, Chrome 10+ */\n";
-		css += "background-image: -webkit-linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n",
+		css += "background-image: -webkit-linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n";
 		css += "/* Opera */\n";
-		css += "background-image: -o-linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n",
+		css += "background-image: -o-linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n";
 
-		$('#css1').html(css);
+		$('#img1 pre.css').html(css);
 	}
 
 	// Load canvas
