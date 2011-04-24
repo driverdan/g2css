@@ -6,7 +6,7 @@ G2CSS makes heavy use of [Billy Hoffman's ImageG2CSS's code](http://zoompf.com/g
 
 ## Use
 
-G2CSS requires a modern browser.
+G2CSS requires a browser that supports the File API. It currently works in Chrome and Firefox 4. The CSS Gradient example box doesn't work in FF.
 
 ## License
 
