@@ -1,5 +1,10 @@
 body {
 	font: 14px/21px "Helvetica Neue", Helvetica, sans-serif;
+	color: #333;
+}
+
+pre, code, kbd, samp {
+	font-family: monospace, sans-serif;
 }
 
 pre {
