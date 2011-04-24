@@ -18,6 +18,15 @@ pre {
 	padding: 5px;
 }
 
+footer {
+	clear: both;
+	padding: 1em 0 0;
+}
+
+footer p {
+	margin: 0
+}
+
 .container {
 	margin: 10px;
 	overflow: hidden;
