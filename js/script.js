@@ -79,7 +79,7 @@ $(function() {
 		css += "/* Opera */\n";
 		css += "background-image: -o-linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n",
 
-		$('#cssholder').html(css);
+		$('#css1').html(css);
 	}
 
 	// Load canvas

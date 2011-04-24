@@ -1,3 +1,8 @@
+html, body, pre {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font: 14px/21px "Helvetica Neue", Helvetica, sans-serif;
 	color: #333;
@@ -13,6 +18,23 @@ pre {
 	padding: 5px;
 }
 
+.container {
+	margin: 10px;
+	overflow: hidden;
+}
+
 #grad {
 	display: none;
+}
+
+pre.css {
+	float: left;
+}
+
+.img {
+	border: 1px solid #aaa;
+	padding: 5px;
+	text-align: center;
+	float: left;
+	margin: 0 10px;
 }

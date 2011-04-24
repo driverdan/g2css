@@ -6,17 +6,19 @@
 	</head>
 
 	<body>
-		<h1>G2CSS</h1>
-		<h2>Convert gradient images to CSS gradients in the browser.</h2>
+		<div class="container">
+			<h1>G2CSS</h1>
+			<h2>Convert gradient images to CSS gradients in the browser.</h2>
 
-		<pre id="cssholder"></pre>
+			<section class="img">
+				<h3>Original Image</h3>
+				<img id="imgsrc" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAGQCAMAAACgZgEeAAABAlBMVEW5ubloaGhnZ2dpaWlqampsbGxra2tubm5vb29ycnJ8fHxxcXFzc3NwcHB2dnZ4eHh0dHRtbW1mZmaNjY13d3eLi4t7e3uPj496enqAgICDg4OMjIx5eXmIiIiJiYmHh4d9fX2BgYGGhoaFhYV+fn51dXV/f3+CgoKOjo6EhISKioq3t7e2tratra2zs7Opqam1tbW0tLSysrKwsLCurq6cnJyvr6+QkJCrq6ulpaWbm5umpqagoKC4uLixsbGVlZWZmZmjo6O7u7usrKynp6eRkZGampqWlpakpKSfn5+ioqK6urqYmJiqqqqenp6oqKiTk5OSkpKUlJShoaGdnZ2Xl5ewCHn6AAABAklEQVR4XrTGtQ1DQRQAQfdjZmZm7r8VZ5t9rd7pPNGUVgj1jLz9lykytIwMrSC1DaS2iVBrSG0Loc4Qahuh9hBqB6FWEeoa3gFCvcJbR6h3eDfwjuEdItQDvEt4T/C+4Z3Ae4T3Bu8HBe3CO4J3B+8C3gu8XxR0D+8c3he8DxT0Ce8W3j68v1bjGgcCGAiA2DEzM/P/H3jddNFoo7jyGt4PEp3Du4d3Ce8PiZ7gPcJ7hvcG7x3eLxLdwfuG9wrvFt4XvA94L/D2EOoK3g28B3jHCHUB7wihPuGdINQBQu0i1D5CHSLUDkJtI7dThNpEblvIbQMFWkeBVlG2NZTtDJH+AfkkbqkkiQtQAAAAAElFTkSuQmCC"/>
+			</section>
 
-		<div class="img">
-			<h3>Original Image</h3>
-			<img id="imgsrc" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAGQCAMAAACgZgEeAAABAlBMVEW5ubloaGhnZ2dpaWlqampsbGxra2tubm5vb29ycnJ8fHxxcXFzc3NwcHB2dnZ4eHh0dHRtbW1mZmaNjY13d3eLi4t7e3uPj496enqAgICDg4OMjIx5eXmIiIiJiYmHh4d9fX2BgYGGhoaFhYV+fn51dXV/f3+CgoKOjo6EhISKioq3t7e2tratra2zs7Opqam1tbW0tLSysrKwsLCurq6cnJyvr6+QkJCrq6ulpaWbm5umpqagoKC4uLixsbGVlZWZmZmjo6O7u7usrKynp6eRkZGampqWlpakpKSfn5+ioqK6urqYmJiqqqqenp6oqKiTk5OSkpKUlJShoaGdnZ2Xl5ewCHn6AAABAklEQVR4XrTGtQ1DQRQAQfdjZmZm7r8VZ5t9rd7pPNGUVgj1jLz9lykytIwMrSC1DaS2iVBrSG0Loc4Qahuh9hBqB6FWEeoa3gFCvcJbR6h3eDfwjuEdItQDvEt4T/C+4Z3Ae4T3Bu8HBe3CO4J3B+8C3gu8XxR0D+8c3he8DxT0Ce8W3j68v1bjGgcCGAiA2DEzM/P/H3jddNFoo7jyGt4PEp3Du4d3Ce8PiZ7gPcJ7hvcG7x3eLxLdwfuG9wrvFt4XvA94L/D2EOoK3g28B3jHCHUB7wihPuGdINQBQu0i1D5CHSLUDkJtI7dThNpEblvIbQMFWkeBVlG2NZTtDJH+AfkkbqkkiQtQAAAAAElFTkSuQmCC"/>
+			<pre class="css" id="css1"></pre>
+
+			<canvas id="grad"></canvas>
 		</div>
-
-		<canvas id="grad"></canvas>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
 		<script src="js/script.js"></script>
