@@ -48,6 +48,11 @@ pre.css {
 	margin: 0 10px;
 }
 
+.img img {
+	display: block;
+	margin: 0 auto;
+}
+
 .cssgradient {
 	margin: 0 auto;
 }
