@@ -79,7 +79,8 @@ $(function() {
 		css += "/* Opera */\n";
 		css += "background-image: -o-linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n";
 
-		$('#img1 pre.css').html(css);
+		$("#img1 pre.css").html(css);
+		$("#img1 .cssgradient")[0].style.cssText = "height:" + img.height + "px;width:" + img.width + "px;" + css;
 	}
 
 	// Load canvas
