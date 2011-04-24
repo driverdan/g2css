@@ -18,6 +18,15 @@ pre {
 	padding: 5px;
 }
 
+h2 {
+	margin: 1em 0 0;
+}
+
+article {
+	clear: both;
+	overflow: hidden;
+}
+
 footer {
 	clear: both;
 	padding: 1em 0 0;
@@ -32,6 +41,12 @@ footer p {
 	overflow: hidden;
 }
 
+h3.use {
+	border: 1px dashed #aaa;
+	padding: 5px;
+	float: left;
+	background: #eee;
+}
 #grad {
 	display: none;
 }
