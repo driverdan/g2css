@@ -20,10 +20,13 @@ $(function() {
 		if (file.type.match(/image.*/)) {
 			reader = new FileReader();
 			reader.onload = function(e) {
-				$("#img1 .imgsrc")[0].onload = function() {
+				var img = $("#img1 .imgsrc");
+				img[0].src = "";
+				img[0].onload = function() {
+					console.log("onload");
 					processPixelData();
-				};
-				$("#img1 .imgsrc").attr("src", e.target.result);
+				}
+				img.attr("src", e.target.result);
 			};
 			reader.readAsDataURL(file);
 		}
