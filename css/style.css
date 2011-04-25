@@ -56,8 +56,9 @@ pre.css {
 }
 
 .img {
+	background: url(../img/bg-sq.png);
 	border: 1px solid #aaa;
-	padding: 5px;
+	padding: 0 10px 10px;
 	text-align: center;
 	float: left;
 	margin: 0 10px;
