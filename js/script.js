@@ -1,5 +1,5 @@
-$(function() {
-	var body = $("body")[0];
+$(function(doc) {
+	var body = doc.body;
 	
 	function dragenter(e) {
 		e.stopPropagation();
@@ -71,9 +71,10 @@ $(function() {
 
 	function processPixelData() {
 		// Load canvas
-		var canvas = document.getElementById("grad")
+		var canvas = doc.getElementById("grad")
 			, context = canvas.getContext("2d")
 			, img = $("#img1 .imgsrc")[0]
+			, aps = Array.prototype.slice
 			, data;
 
 		canvas.width = img.width;
@@ -83,10 +84,10 @@ $(function() {
 		
 		// Get each corner pixel as RGBA array
 		data = {
-			TL: Array.prototype.slice.call(context.getImageData(0, 0, 1, 1).data, 0)
-			, TR: Array.prototype.slice.call(context.getImageData(canvas.width - 1, 0, 1, 1).data, 0)
-			, BL: Array.prototype.slice.call(context.getImageData(0, canvas.height - 1, 1, 1).data, 0)
-			, BR: Array.prototype.slice.call(context.getImageData(canvas.width - 1, canvas.height - 1, 1, 1).data, 0)
+			TL: aps.call(context.getImageData(0, 0, 1, 1).data, 0)
+			, TR: aps.call(context.getImageData(canvas.width - 1, 0, 1, 1).data, 0)
+			, BL: aps.call(context.getImageData(0, canvas.height - 1, 1, 1).data, 0)
+			, BR: aps.call(context.getImageData(canvas.width - 1, canvas.height - 1, 1, 1).data, 0)
 		};
 
 		if(data == null || !data.TR) {
@@ -136,10 +137,12 @@ $(function() {
 		css += "background-image: -webkit-linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n";
 		css += "/* Opera */\n";
 		css += "background-image: -o-linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n";
+		css += "/* Unprefixed */\n";
+		css += "background-image: linear-gradient(" + normal[orin] + ", " + toColorString(color1) + ", " + toColorString(color2) + ");\n";
 
 		$("#img1 pre.css").html(css);
 		$("#img1 .cssgradient")[0].style.cssText = "height:" + img.height + "px;width:" + img.width + "px;" + css;
 	}
 
 	processPixelData();
-});
+}(document));
